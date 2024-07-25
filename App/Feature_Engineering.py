@@ -11,28 +11,50 @@ logger = setup_logging('Forecast.log')
 
 class Features():
 
-    def __init__(self , path , info = True):
+    def __init__(self , Dataset_path , USD_Dataset_path, info = False , t1 = 100 , t2 = 500 , t3 = 1000 , t4 = 5000):
         try:
-            self.df = pd.read_json(path, lines=True)
+            self.df = pd.read_json(Dataset_path, lines=True)
             logger.info("File loaded successfully")
         except FileNotFoundError:
-            logger.error("The file was not found.")
+            logger.error("The Dataset file was not found.")
         except ValueError:
-            logger.error("The file could not be parsed.")
+            logger.error("The Dataset file could not be parsed.")
         except Exception as e:
-            logger.error(f"An error occurred: {e}")
+            logger.error(f"An Dataset error occurred: {e}")
 
-    
+        try:
+            self.usd = pd.read_csv(USD_Dataset_path, lines=True)
+            logger.info("File loaded successfully")
+        except FileNotFoundError:
+            logger.error("The USD file was not found.")
+        except ValueError:
+            logger.error("The USD file could not be parsed.")
+        except Exception as e:
+            logger.error(f"An USD error occurred: {e}")
+
+
         if(info):
             self.dataset_info()
         
         self.process_dates()
+        self.convert(t1 , t2 , t3 , t4)
+        
+        self.df['TotalValueUSD'] = self.df.apply(lambda row: self.convert_to_usd(row['RecTime'], row['TotalValue']), axis=1)
+        self.df['prevWeek'] = self.df['TotalValueUSD'].rolling(window=7, min_periods=1).mean().shift(1)
+        logger.info('Amounts Converted to USD')
+
         self.add_holidays()
         logger.info('Holidays Added')
+
         self.add_events()
         logger.info('Events Added')
+
         self.add_paydays()
         logger.info('Paydays Added')
+
+        self.df['HolidaySequence'] = self.get_sequence(self.df['IsHoliday'])
+        logger.info('Holiday sequence Added')
+        
 
         name = Path(r"C:\Users\Hp\Desktop\cashInfo-1006.json").stem
         self.df.to_csv(name+'processed')
@@ -59,9 +81,32 @@ class Features():
         self.df['Quarter'] = self.df['RecTime'].dt.quarter
         self.df['DayOfYear'] = self.df['RecTime'].dt.dayofyear
         self.df['PartOfMonth'] = self.df['RecTime'].dt.day.apply(lambda day: '1' if day <= 10 else ('2' if day <= 20 else '3'))
+        self.df['prevWeek'] = self.df['TotalValue'].rolling(window=7, min_periods=1).mean().shift(1)
 
 
         self.df.drop(['ATMId' , 'Id' , 'HolidayType' ] , axis= 1 , inplace= True)
+
+    def convert(self , t1 = 100 , t2 = 500 , t3 = 1000 , t4 = 5000):
+        self.df['Type1Value'] = t1 * self.df['Type1Count']
+        self.df['Type2Value'] = t2 * self.df['Type2Count']
+        self.df['Type3Value'] = t3 * self.df['Type3Count']
+        self.df['Type4Value'] = t4 * self.df['Type4Count']
+        self.df['TotalValue'] = self.df['Type1Value'] + self.df['Type2Value'] + self.df['Type3Value'] + self.df['Type4Value'] 
+        
+    def convert_to_usd(self , date, total_value):
+       
+        price_row = self.usd[self.usd['RecTime'] <= date]
+        
+        if not price_row.empty:
+            # Find the most recent available exchange rate before or on the given date
+            latest_price_row = price_row.sort_values(by='RecTime', ascending=False).iloc[0]
+            price = latest_price_row['Price']
+            # Convert TotalValue to USD
+            return total_value / price
+        else:
+            # If no exchange rate is available, return NaN or handle accordingly
+            return None
+
 
     def add_holidays(self):
         public_holidays = {
@@ -163,6 +208,8 @@ class Features():
             # Add 'HolidayType' based on 'RecTime'
         self.df['HolidayType'] = self.df['RecTime'].apply(lambda x: public_holidays.get(x.strftime('%Y-%m-%d'), None))
         self.df['IsHoliday'] = self.df['HolidayType'].notna()
+        self.df.loc[self.df['IsWeekend'], 'IsHoliday'] = True
+
 
 
         self.df.loc[self.df['RecTime'].between(pd.to_datetime('2024-2-8') ,pd.to_datetime('2024-2-9') ), 'HolidayType'] = 'Elections'
@@ -230,4 +277,30 @@ class Features():
         self.df['Paydays'] = False
         # Mark paydays in 'Event' column of df
         self.df.loc[self.df['RecTime'].isin(all_paydays['RecTime']), 'Paydays'] = True
-        
+
+    
+    def get_holidays_sequence(self,is_holiday_series):
+        sequence = []
+        n = len(is_holiday_series)
+        for i in range(n):
+            if i == 0:  # Only today
+                seq = ('H' if is_holiday_series[i] else 'W')
+            elif i == 1:  # Yesterday and today
+                seq = ('H' if is_holiday_series[i-1] else 'W') + ('H' if is_holiday_series[i] else 'W')
+            elif i == n-1:  # Yesterday and today
+                seq = ('H' if is_holiday_series[i-1] else 'W') + ('H' if is_holiday_series[i] else 'W')
+            elif i == n-2:  # Yesterday, today, and tomorrow
+                seq = (
+                    ('H' if is_holiday_series[i-1] else 'W') +
+                    ('H' if is_holiday_series[i] else 'W') +
+                    ('H' if is_holiday_series[i+1] else 'W')
+                )
+            else:  # Full sequence
+                seq = (
+                    ('H' if is_holiday_series[i-1] else 'W') +
+                    ('H' if is_holiday_series[i] else 'W') +
+                    ('H' if is_holiday_series[i+1] else 'W') +
+                    ('H' if is_holiday_series[i+2] else 'W')
+                )
+            sequence.append(seq)
+        return sequence

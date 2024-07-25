@@ -17,10 +17,10 @@ class preprocess():
         y2 = self.df.pop('Type2Count')
         y3 = self.df.pop('Type3Count')
         y4 = self.df.pop('Type4Count')
-        
+        self.df.drop(['Type1Value', 'Type2Value', 'Type3Value', 'Type4Value'] , inplace= True, axis= 1)
         self.labelEncoding()
         self.split_for_regression()
-        self.split_for_time_series()
+
         logger.info('Dataframe ready for model training')
 
         self.Timeseries = [self.ts_df_train , self.ts_df_test]
@@ -29,18 +29,11 @@ class preprocess():
 
     def labelEncoding(self):
         le = LabelEncoder()
-        ft = ['IsHoliday','HolidayType','DayOfWeek','Event' , 'Paydays']
+        ft = ['IsHoliday','HolidayType','DayOfWeek','Event' , 'Paydays' , 'HolidaySequence' , 'IsWeekend','PartOfMonth' ]
         for i in ft:
             self.df[i] = le.fit_transform(self.df[i])
 
-    def split_for_time_series(self):
-        ts_df = copy.deepcopy(self.df)
-        ts_df = ts_df.rename(columns={'RecTime': 'ds', 'TotalValue': 'y'})
-        train_size = int(len(ts_df) * 0.8)
-        self.ts_df_train = ts_df.iloc[:train_size]
-        self.ts_df_test = ts_df.iloc[train_size:]
-        print(ts_df.columns)
-    def split_for_regression(self):
+    def split(self):
         R_df = copy.deepcopy(self.df)
         R_df.pop('RecTime')
         y = R_df.pop('TotalValue')
