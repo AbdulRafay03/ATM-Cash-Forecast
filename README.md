@@ -37,7 +37,7 @@
 17. **HolidaySequence**: Tracks the sequence of holidays to assess their cumulative impact on ATM usage over time.
 
 ## Results
-[text](true_vs_predicted_models.html)
+
 | Model           | MSE          | MAE          | MAPE     | R²        |
 |-----------------|--------------|--------------|----------|-----------|
 | Gradient Boost  | 7706.754390   | 70.036785     | 0.450142 | 0.242991  |
@@ -49,12 +49,13 @@
 | Average         | 7653.172050   | 69.994031     | 0.452448 | 0.248254  |
 | Max             | 7897.089496   | 71.107252     | 0.482975 | 0.224295  |
 
-
+![alt text](ss.png) 
 ![alt text](<Screenshot 2024-07-25 193909.png>)
 ![alt text](<Screenshot 2024-07-25 193915.png>)
 ![alt text](<Screenshot 2024-07-25 193925.png>)
 ![alt text](<Screenshot 2024-07-25 193929.png>)
 ![alt text](<Screenshot 2024-07-25 193933.png>)
-![alt text](ss.png) ![alt text](output.png)
+
 ![alt text](<Screenshot 2024-07-25 193855.png>)
 ![alt text](<Screenshot 2024-07-25 193903.png>)
+![alt text](output.png)
