@@ -23,7 +23,8 @@ class Features():
             logger.error(f"An Dataset error occurred: {e}")
 
         try:
-            self.usd = pd.read_csv(USD_Dataset_path, lines=True)
+            self.usd = pd.read_csv(USD_Dataset_path)
+            self.usd['RecTime'] = pd.to_datetime(self.usd["Date"])
             logger.info("File loaded successfully")
         except FileNotFoundError:
             logger.error("The USD file was not found.")
@@ -40,7 +41,9 @@ class Features():
         self.convert(t1 , t2 , t3 , t4)
         
         self.df['TotalValueUSD'] = self.df.apply(lambda row: self.convert_to_usd(row['RecTime'], row['TotalValue']), axis=1)
-        self.df['prevWeek'] = self.df['TotalValueUSD'].rolling(window=7, min_periods=1).mean().shift(1)
+        self.df['Last7Days_mean'] = self.df['TotalValueUSD'].rolling(window=7, min_periods=1).mean().shift(1)
+        self.df['Last30Days_mean'] = self.df['TotalValueUSD'].rolling(window=30, min_periods=1).mean().shift(1)
+        
         logger.info('Amounts Converted to USD')
 
         self.add_holidays()
@@ -52,7 +55,7 @@ class Features():
         self.add_paydays()
         logger.info('Paydays Added')
 
-        self.df['HolidaySequence'] = self.get_sequence(self.df['IsHoliday'])
+        self.df['HolidaySequence'] = self.get_holidays_sequence(self.df['IsHoliday'])
         logger.info('Holiday sequence Added')
         
 
@@ -81,7 +84,7 @@ class Features():
         self.df['Quarter'] = self.df['RecTime'].dt.quarter
         self.df['DayOfYear'] = self.df['RecTime'].dt.dayofyear
         self.df['PartOfMonth'] = self.df['RecTime'].dt.day.apply(lambda day: '1' if day <= 10 else ('2' if day <= 20 else '3'))
-        self.df['prevWeek'] = self.df['TotalValue'].rolling(window=7, min_periods=1).mean().shift(1)
+        # self.df['prevWeek'] = self.df['TotalValue'].rolling(window=7, min_periods=1).mean().shift(1)
 
 
         self.df.drop(['ATMId' , 'Id' , 'HolidayType' ] , axis= 1 , inplace= True)
@@ -258,26 +261,28 @@ class Features():
 
     def add_paydays(self):
 
-        all_paydays = pd.DataFrame()
+        all_paydays = []
 
         for year in range(2020, 2025):
-            paydays_year = pd.DataFrame()
+            paydays_year = []
             
             for month in range(1, 13):
-                month_dates = pd.date_range(start=f'{year}-{month:02d}-01', end=f'{year}-{month:02d}-05')
-                paydays_year = paydays_year.append(pd.DataFrame({'RecTime': month_dates}))
+                month_dates = pd.date_range(start=f'{year}-{month:02d}-01', end=f'{year}-{month:02d}-10')
+                paydays_year.append(pd.DataFrame({'RecTime': month_dates}))
 
+            paydays_year = pd.concat(paydays_year, ignore_index=True)
             weekmask = 'Mon Tue Wed Thu Fri'
             bday = CustomBusinessDay(weekmask=weekmask)
             paydays_year['RecTime'] = paydays_year['RecTime'] + bday
             
-            all_paydays = all_paydays.append(paydays_year)
+            all_paydays.append(paydays_year)
 
+        all_paydays = pd.concat(all_paydays, ignore_index=True)
         all_paydays['RecTime'] = pd.to_datetime(all_paydays['RecTime'])
         self.df['Paydays'] = False
-        # Mark paydays in 'Event' column of df
-        self.df.loc[self.df['RecTime'].isin(all_paydays['RecTime']), 'Paydays'] = True
 
+
+        self.df.loc[self.df['RecTime'].isin(all_paydays['RecTime']), 'Paydays'] = True
     
     def get_holidays_sequence(self,is_holiday_series):
         sequence = []

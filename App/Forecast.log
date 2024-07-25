@@ -1,38 +1,35 @@
-2024-07-18 15:22:49.257|16604|DEBUG|matplotlib->wrapper():307 -> matplotlib data path: C:\Users\Hp\anaconda3\lib\site-packages\matplotlib\mpl-data
-2024-07-18 15:22:49.263|16604|DEBUG|matplotlib->wrapper():307 -> CONFIGDIR=C:\Users\Hp\.matplotlib
-2024-07-18 15:22:49.267|16604|DEBUG|matplotlib-><module>():1475 -> interactive is False
-2024-07-18 15:22:49.267|16604|DEBUG|matplotlib-><module>():1476 -> platform is win32
-2024-07-18 15:22:49.311|16604|DEBUG|matplotlib->wrapper():307 -> CACHEDIR=C:\Users\Hp\.matplotlib
-2024-07-18 15:22:49.315|16604|DEBUG|matplotlib.font_manager->_load_fontmanager():1540 -> Using fontManager instance from C:\Users\Hp\.matplotlib\fontlist-v330.json
-2024-07-18 15:22:49.812|16604|INFO|Logger->__init__():17 -> File loaded successfully
-2024-07-18 15:22:49.812|16604|INFO|Logger->dataset_info():43 -> DF Shape: (1642, 10)
-2024-07-18 15:22:49.812|16604|INFO|Logger->dataset_info():44 -> Number of Columns: 10
-2024-07-18 15:22:49.812|16604|INFO|Logger->dataset_info():45 -> Number of Observations: 1642
-2024-07-18 15:22:49.816|16604|INFO|Logger->dataset_info():46 -> Number of values in self.df: 15247
-2024-07-18 15:22:49.816|16604|INFO|Logger->dataset_info():47 -> Total Number of Missing values in self.df: 1173
-2024-07-18 15:22:49.818|16604|INFO|Logger->dataset_info():48 -> Percentage of Missing values: 7.69%
-2024-07-18 15:22:49.818|16604|INFO|Logger->dataset_info():49 -> Total Number of Duplicated records in self.df: 0
-2024-07-18 15:22:49.818|16604|INFO|Logger->dataset_info():50 -> Percentage of Duplicated values: 0.00%
-2024-07-18 15:22:49.832|16604|INFO|Logger->__init__():31 -> Holidays Added
-2024-07-18 15:22:49.837|16604|INFO|Logger->__init__():33 -> Events Added
-2024-07-18 15:22:49.872|16604|INFO|Logger->__init__():35 -> Paydays Added
-2024-07-18 15:22:49.881|16604|INFO|Logger->__init__():39 -> Procesed Dataset saved as cashInfo-1006processed.csv
-2024-07-18 15:22:49.881|16604|INFO|Logger->__init__():24 -> Dataframe ready for model training
-2024-07-18 15:22:50.109|16604|DEBUG|cmdstanpy->do_command():37 -> cmd: where.exe tbb.dll
-cwd: None
-2024-07-18 15:22:50.172|16604|DEBUG|cmdstanpy->__init__():245 -> Adding TBB (C:\Users\Hp\anaconda3\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
-2024-07-18 15:22:50.188|16604|DEBUG|cmdstanpy->_temp_single_json():118 -> input tempfile: C:\Users\Hp\AppData\Local\Temp\tmpk4lffffx\urtxg1zh.json
-2024-07-18 15:22:50.283|16604|DEBUG|cmdstanpy->_temp_single_json():118 -> input tempfile: C:\Users\Hp\AppData\Local\Temp\tmpk4lffffx\7pr_iuht.json
-2024-07-18 15:22:50.287|16604|DEBUG|cmdstanpy->_run_cmdstan():2042 -> idx 0
-2024-07-18 15:22:50.287|16604|DEBUG|cmdstanpy->_run_cmdstan():2043 -> running CmdStan, num_threads: None
-2024-07-18 15:22:50.287|16604|DEBUG|cmdstanpy->_run_cmdstan():2055 -> CmdStan args: ['C:\\Users\\Hp\\anaconda3\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=86817', 'data', 'file=C:\\Users\\Hp\\AppData\\Local\\Temp\\tmpk4lffffx\\urtxg1zh.json', 'init=C:\\Users\\Hp\\AppData\\Local\\Temp\\tmpk4lffffx\\7pr_iuht.json', 'output', 'file=C:\\Users\\Hp\\AppData\\Local\\Temp\\tmpk4lffffx\\prophet_model1lnaffb0\\prophet_model-20240718152250.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
-2024-07-18 15:22:50.287|16604|INFO|cmdstanpy->_run_cmdstan():2058 -> Chain [1] start processing
-2024-07-18 15:22:50.337|16604|INFO|cmdstanpy->_run_cmdstan():2115 -> Chain [1] done processing
-2024-07-18 15:22:50.660|16604|INFO|Logger->evaluate():40 -> Model : Prophet 
-2024-07-18 15:22:50.660|16604|INFO|Logger->evaluate():41 -> Mean Absolute Error (MAE): 13.24
-2024-07-18 15:22:50.660|16604|INFO|Logger->evaluate():42 -> Mean Squared Error (MSE): 268.05
-2024-07-18 15:22:50.660|16604|INFO|Logger->evaluate():43 -> Root Mean Squared Error (RMSE): 16.37
-2024-07-18 15:22:50.776|16604|INFO|Logger->evaluate():40 -> Model : type 
-2024-07-18 15:22:50.776|16604|INFO|Logger->evaluate():41 -> Mean Absolute Error (MAE): 13.57
-2024-07-18 15:22:50.776|16604|INFO|Logger->evaluate():42 -> Mean Squared Error (MSE): 287.63
-2024-07-18 15:22:50.776|16604|INFO|Logger->evaluate():43 -> Root Mean Squared Error (RMSE): 16.96
+2024-07-25 18:48:38.063|3888|DEBUG|matplotlib->wrapper():337 -> matplotlib data path: C:\Users\Shaikh Abdul Rafay\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2024-07-25 18:48:38.063|3888|DEBUG|matplotlib->wrapper():337 -> CONFIGDIR=C:\Users\Shaikh Abdul Rafay\.matplotlib
+2024-07-25 18:48:38.063|3888|DEBUG|matplotlib-><module>():1498 -> interactive is False
+2024-07-25 18:48:38.063|3888|DEBUG|matplotlib-><module>():1499 -> platform is win32
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.backend.piping.pipe(['renderer', 'formatter', 'neato_no_op', 'quiet'])
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.backend.rendering.render(['renderer', 'formatter', 'neato_no_op', 'quiet'])
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.backend.unflattening.unflatten(['stagger', 'fanout', 'chain', 'encoding'])
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.backend.viewing.view(['quiet'])
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.quoting.quote(['is_html_string', 'is_valid_id', 'dot_keywords', 'endswith_odd_number_of_backslashes', 'escape_unescaped_quotes'])
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.quoting.a_list(['kwargs', 'attributes'])
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.quoting.attr_list(['kwargs', 'attributes'])
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.dot.Dot.clear(['keep_attrs'])
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.dot.Dot.__iter__(['subgraph'])
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.dot.Dot.node(['_attributes'])
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.dot.Dot.edge(['_attributes'])
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.dot.Dot.attr(['_attributes'])
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.dot.Dot.subgraph(['name', 'comment', 'graph_attr', 'node_attr', 'edge_attr', 'body'])
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.piping.Pipe._pipe_legacy(['renderer', 'formatter', 'neato_no_op', 'quiet'])
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.saving.Save.save(['directory'])
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.rendering.Render.render(['directory', 'view', 'cleanup', 'format', 'renderer', 'formatter', 'neato_no_op', 'quiet', 'quiet_view'])
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.rendering.Render.view(['directory', 'cleanup', 'quiet', 'quiet_view'])
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.unflattening.Unflatten.unflatten(['stagger', 'fanout', 'chain'])
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.graphs.BaseGraph.__init__(['comment', 'filename', 'directory', 'format', 'engine', 'encoding', 'graph_attr', 'node_attr', 'edge_attr', 'body', 'strict'])
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.sources.Source.from_file(['directory', 'format', 'engine', 'encoding', 'renderer', 'formatter'])
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.sources.Source.__init__(['filename', 'directory', 'format', 'engine', 'encoding'])
+2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.sources.Source.save(['directory'])
+2024-07-25 18:48:39.029|3888|INFO|Logger->__init__():17 -> File loaded successfully
+2024-07-25 18:48:39.045|3888|INFO|Logger->__init__():28 -> File loaded successfully
+2024-07-25 18:48:40.249|3888|INFO|Logger->__init__():47 -> Amounts Converted to USD
+2024-07-25 18:48:40.264|3888|INFO|Logger->__init__():50 -> Holidays Added
+2024-07-25 18:48:40.296|3888|INFO|Logger->__init__():53 -> Events Added
+2024-07-25 18:48:40.343|3888|INFO|Logger->__init__():56 -> Paydays Added
+2024-07-25 18:48:40.358|3888|INFO|Logger->__init__():59 -> Holiday sequence Added
+2024-07-25 18:48:40.389|3888|INFO|Logger->__init__():64 -> Procesed Dataset saved as cashInfo-1006processed.csv
+2024-07-25 18:48:40.389|3888|INFO|Logger->__init__():26 -> Dataframe ready for model training
