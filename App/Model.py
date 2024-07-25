@@ -1,15 +1,15 @@
 import pandas as pd
-from prophet import Prophet
-from sklearn.metrics import mean_absolute_error, mean_squared_error
 import numpy as np
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
-from statsmodels.tsa.arima.model import ARIMA
-import plotly.graph_objs as go
-from sklearn.ensemble import GradientBoostingRegressor
-from sklearn.model_selection import RandomizedSearchCV
-from scipy.stats import randint
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import StackingRegressor
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from xgboost import XGBRegressor
+from catboost import CatBoostRegressor
+import lightgbm as lgb
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
 import warnings
 warnings.filterwarnings('ignore')
 from Logger import setup_logging
@@ -17,13 +17,14 @@ from Logger import setup_logging
 logger = setup_logging('Forecast.log')
 
 class model():
-    def __init__(self , Ts_df , R_df , comp_df):
-        self.Ts_df = Ts_df
-        self.R_df = R_df
-        self.comp_df = comp_df
+    def __init__(self ,splits ):
+        self.xtrain = splits[0]
+        self.xtest = splits[1]
+        self.ytrain = splits[2]
+        self.ytest = splits[3]
 
-        self.prophet()
-        self.GradBoost()
+        
+        self.()
 
     def evaluate(self ,model , y_pred , TS):
         if TS:
@@ -67,30 +68,30 @@ class model():
         fig.show()
         # fig.write_image(f"{model.__class__.__name__}fig.png")
 
+    def fit_models():
+        gb = GradientBoostingRegressor(learning_rate =  0.01687770422304368,
+            max_depth = 3,min_samples_leaf = 4,
+            min_samples_split = 19,n_estimators = 409,
+            subsample = 0.8776807051588262)
+        lgbm= lgb.LGBMRegressor(subsample=0.9,num_leaves=31,
+            n_estimators=500,min_child_samples=40,
+            learning_rate=0.01,colsample_bytree=0.7
+        )
+        cb = CatBoostRegressor(learning_rate=0.01,l2_leaf_reg=3,
+            iterations=1000,depth=4,verbose=0
+        )
+        rf = RandomForestRegressor(bootstrap=True,max_depth=19,
+            max_features='auto',min_samples_leaf=9,
+            min_samples_split=13,n_estimators=314
+        )
+        xgb = XGBRegressor(colsample_bytree=0.7845407345828739,gamma=0.06351182959000135,
+            learning_rate=0.017364373527198277,max_depth=3,
+            min_child_weight=5,n_estimators=360,
+            subsample=0.9323611881275267
+        )
 
-    def prophet(self):
-        model = Prophet(yearly_seasonality=True, weekly_seasonality=True, daily_seasonality=True)
-        model.fit(self.Ts_df[0])
-
-        future = model.make_future_dataframe(periods=len(self.Ts_df[1]))
-
-        forecast = model.predict(future)
-        y_pred = forecast['yhat'].iloc[-len(self.Ts_df[1]):].values
-        self.evaluate(model , y_pred , TS = True)
-        # self.plot_Forecast(model , forecast , self.comp_df['TotalValue']  )
-
-    def GradBoost(self):
-        from sklearn.ensemble import GradientBoostingRegressor
-
-        gb = GradientBoostingRegressor()
-
-        gb.fit(self.R_df[0]  , self.R_df[2])
-        pred = gb.predict(self.R_df[1])
-        
-        self.evaluate(model ,pred  , TS = False)
-        # pred_w = gb.predict(self.comp_df[0])
-        # self.plot_Forecast(model ,pred_w, self.comp_df[1])
-
+    
+    
 
 
         
