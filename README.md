@@ -26,7 +26,7 @@
 
 12. **Last30Days_mean**: Average transaction value over the past 30 days, capturing medium-term trends.
 
-13. **Difference**: Measures changes in transaction value compared to previous periods, indicating deviations from typical patterns.
+13. **Difference**: Measures changes in transaction value of the previous 2 days, indicating deviations from typical patterns.
 
 14. **HolidayType**: Details the type of holiday, which can affect transaction behavior differently depending on the type of holiday.
 
