@@ -1,35 +1,42 @@
-2024-07-25 18:48:38.063|3888|DEBUG|matplotlib->wrapper():337 -> matplotlib data path: C:\Users\Shaikh Abdul Rafay\anaconda3\Lib\site-packages\matplotlib\mpl-data
-2024-07-25 18:48:38.063|3888|DEBUG|matplotlib->wrapper():337 -> CONFIGDIR=C:\Users\Shaikh Abdul Rafay\.matplotlib
-2024-07-25 18:48:38.063|3888|DEBUG|matplotlib-><module>():1498 -> interactive is False
-2024-07-25 18:48:38.063|3888|DEBUG|matplotlib-><module>():1499 -> platform is win32
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.backend.piping.pipe(['renderer', 'formatter', 'neato_no_op', 'quiet'])
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.backend.rendering.render(['renderer', 'formatter', 'neato_no_op', 'quiet'])
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.backend.unflattening.unflatten(['stagger', 'fanout', 'chain', 'encoding'])
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.backend.viewing.view(['quiet'])
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.quoting.quote(['is_html_string', 'is_valid_id', 'dot_keywords', 'endswith_odd_number_of_backslashes', 'escape_unescaped_quotes'])
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.quoting.a_list(['kwargs', 'attributes'])
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.quoting.attr_list(['kwargs', 'attributes'])
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.dot.Dot.clear(['keep_attrs'])
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.dot.Dot.__iter__(['subgraph'])
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.dot.Dot.node(['_attributes'])
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.dot.Dot.edge(['_attributes'])
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.dot.Dot.attr(['_attributes'])
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.dot.Dot.subgraph(['name', 'comment', 'graph_attr', 'node_attr', 'edge_attr', 'body'])
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.piping.Pipe._pipe_legacy(['renderer', 'formatter', 'neato_no_op', 'quiet'])
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.saving.Save.save(['directory'])
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.rendering.Render.render(['directory', 'view', 'cleanup', 'format', 'renderer', 'formatter', 'neato_no_op', 'quiet', 'quiet_view'])
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.rendering.Render.view(['directory', 'cleanup', 'quiet', 'quiet_view'])
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.unflattening.Unflatten.unflatten(['stagger', 'fanout', 'chain'])
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.graphs.BaseGraph.__init__(['comment', 'filename', 'directory', 'format', 'engine', 'encoding', 'graph_attr', 'node_attr', 'edge_attr', 'body', 'strict'])
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.sources.Source.from_file(['directory', 'format', 'engine', 'encoding', 'renderer', 'formatter'])
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.sources.Source.__init__(['filename', 'directory', 'format', 'engine', 'encoding'])
-2024-07-25 18:48:38.097|3888|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.sources.Source.save(['directory'])
-2024-07-25 18:48:39.029|3888|INFO|Logger->__init__():17 -> File loaded successfully
-2024-07-25 18:48:39.045|3888|INFO|Logger->__init__():28 -> File loaded successfully
-2024-07-25 18:48:40.249|3888|INFO|Logger->__init__():47 -> Amounts Converted to USD
-2024-07-25 18:48:40.264|3888|INFO|Logger->__init__():50 -> Holidays Added
-2024-07-25 18:48:40.296|3888|INFO|Logger->__init__():53 -> Events Added
-2024-07-25 18:48:40.343|3888|INFO|Logger->__init__():56 -> Paydays Added
-2024-07-25 18:48:40.358|3888|INFO|Logger->__init__():59 -> Holiday sequence Added
-2024-07-25 18:48:40.389|3888|INFO|Logger->__init__():64 -> Procesed Dataset saved as cashInfo-1006processed.csv
-2024-07-25 18:48:40.389|3888|INFO|Logger->__init__():26 -> Dataframe ready for model training
+2024-07-29 16:31:07.919|11108|DEBUG|matplotlib->wrapper():337 -> matplotlib data path: C:\Users\Shaikh Abdul Rafay\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2024-07-29 16:31:07.922|11108|DEBUG|matplotlib->wrapper():337 -> CONFIGDIR=C:\Users\Shaikh Abdul Rafay\.matplotlib
+2024-07-29 16:31:07.922|11108|DEBUG|matplotlib-><module>():1498 -> interactive is False
+2024-07-29 16:31:07.922|11108|DEBUG|matplotlib-><module>():1499 -> platform is win32
+2024-07-29 16:31:07.938|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.backend.piping.pipe(['renderer', 'formatter', 'neato_no_op', 'quiet'])
+2024-07-29 16:31:07.938|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.backend.rendering.render(['renderer', 'formatter', 'neato_no_op', 'quiet'])
+2024-07-29 16:31:07.938|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.backend.unflattening.unflatten(['stagger', 'fanout', 'chain', 'encoding'])
+2024-07-29 16:31:07.938|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.backend.viewing.view(['quiet'])
+2024-07-29 16:31:07.938|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.quoting.quote(['is_html_string', 'is_valid_id', 'dot_keywords', 'endswith_odd_number_of_backslashes', 'escape_unescaped_quotes'])
+2024-07-29 16:31:07.938|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.quoting.a_list(['kwargs', 'attributes'])
+2024-07-29 16:31:07.938|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.quoting.attr_list(['kwargs', 'attributes'])
+2024-07-29 16:31:07.938|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.dot.Dot.clear(['keep_attrs'])
+2024-07-29 16:31:07.938|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.dot.Dot.__iter__(['subgraph'])
+2024-07-29 16:31:07.938|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.dot.Dot.node(['_attributes'])
+2024-07-29 16:31:07.938|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.dot.Dot.edge(['_attributes'])
+2024-07-29 16:31:07.938|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.dot.Dot.attr(['_attributes'])
+2024-07-29 16:31:07.938|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.dot.Dot.subgraph(['name', 'comment', 'graph_attr', 'node_attr', 'edge_attr', 'body'])
+2024-07-29 16:31:07.954|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.piping.Pipe._pipe_legacy(['renderer', 'formatter', 'neato_no_op', 'quiet'])
+2024-07-29 16:31:07.954|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.saving.Save.save(['directory'])
+2024-07-29 16:31:07.954|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.rendering.Render.render(['directory', 'view', 'cleanup', 'format', 'renderer', 'formatter', 'neato_no_op', 'quiet', 'quiet_view'])
+2024-07-29 16:31:07.954|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.rendering.Render.view(['directory', 'cleanup', 'quiet', 'quiet_view'])
+2024-07-29 16:31:07.954|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.unflattening.Unflatten.unflatten(['stagger', 'fanout', 'chain'])
+2024-07-29 16:31:07.954|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.graphs.BaseGraph.__init__(['comment', 'filename', 'directory', 'format', 'engine', 'encoding', 'graph_attr', 'node_attr', 'edge_attr', 'body', 'strict'])
+2024-07-29 16:31:07.954|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.sources.Source.from_file(['directory', 'format', 'engine', 'encoding', 'renderer', 'formatter'])
+2024-07-29 16:31:07.954|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.sources.Source.__init__(['filename', 'directory', 'format', 'engine', 'encoding'])
+2024-07-29 16:31:07.954|11108|DEBUG|graphviz._tools->decorator():147 -> deprecate positional args: graphviz.sources.Source.save(['directory'])
+2024-07-29 16:31:08.974|11108|INFO|Logger->__init__():17 -> File loaded successfully
+2024-07-29 16:31:08.989|11108|INFO|Logger->__init__():28 -> File loaded successfully
+2024-07-29 16:31:10.230|11108|INFO|Logger->__init__():47 -> Amounts Converted to USD
+2024-07-29 16:31:10.246|11108|INFO|Logger->__init__():50 -> Holidays Added
+2024-07-29 16:31:10.267|11108|INFO|Logger->__init__():53 -> Events Added
+2024-07-29 16:31:10.308|11108|INFO|Logger->__init__():56 -> Paydays Added
+2024-07-29 16:31:10.324|11108|INFO|Logger->__init__():59 -> Holiday sequence Added
+2024-07-29 16:31:10.371|11108|INFO|Logger->__init__():64 -> Procesed Dataset saved as cashInfo-1006processed.csv
+2024-07-29 16:31:10.387|11108|INFO|Logger->__init__():26 -> Dataframe ready for model training
+2024-07-29 16:31:10.387|11108|INFO|Logger->__init__():28 -> Build_Models...
+2024-07-29 16:31:39.758|11108|INFO|Logger->evaluate():141 -> Model       CatBoost
+MSE      7864.392024
+MAE        71.702035
+MAPE        0.543357
+R²          0.237518
+Name: 2, dtype: object

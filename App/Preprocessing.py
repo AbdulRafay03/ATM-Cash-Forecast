@@ -24,6 +24,7 @@ class preprocess():
         self.splits = self.split()
 
         logger.info('Dataframe ready for model training')
+       
 
         
 

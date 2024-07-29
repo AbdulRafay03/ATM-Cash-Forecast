@@ -9,6 +9,8 @@ from xgboost import XGBRegressor
 from catboost import CatBoostRegressor
 import lightgbm as lgb
 from sklearn.metrics import mean_squared_error, mean_absolute_error, mean_absolute_percentage_error, r2_score
+import pickle
+from sklearn.preprocessing import LabelEncoder
 
 import warnings
 warnings.filterwarnings('ignore')
@@ -21,10 +23,14 @@ class model():
         self.xtrain = splits[0]
         self.xtest = splits[1]
         self.ytrain = splits[2]
-        self.self.ytest = splits[3]
+        self.ytest = splits[3]
 
         logger.info('Build_Models...')
+
         preds = self.Build_models()
+
+        self.evaluate(preds)
+        
 
 
 
@@ -35,7 +41,7 @@ class model():
             subsample = 0.8776807051588262)
         lgbm= lgb.LGBMRegressor(subsample=0.9,num_leaves=31,
             n_estimators=500,min_child_samples=40,
-            learning_rate=0.01,colsample_bytree=0.7
+            learning_rate=0.01,colsample_bytree=0.7, verbosity = -1
         )
         cb = CatBoostRegressor(learning_rate=0.01,l2_leaf_reg=3,
             iterations=1000,depth=4,verbose=0
@@ -72,7 +78,7 @@ class model():
             )),
             ('lgbm', lgb.LGBMRegressor(subsample=0.9,num_leaves=31,
                 n_estimators=500,min_child_samples=40,
-                learning_rate=0.01,colsample_bytree=0.7
+                learning_rate=0.01,colsample_bytree=0.7  ,verbosity=-1
             ))
         ]
         # Define meta-model
@@ -86,6 +92,9 @@ class model():
         for i in [gb , lgbm , cb , rf , xgb , sr]:
             i.fit(self.xtrain , self.ytrain)
             preds.append(i.predict(self.xtest))
+        
+
+        self.models_list = [gb , lgbm , cb , xgb, rf , sr]
 
         return preds
 
@@ -123,11 +132,44 @@ class model():
                 'R²': r2
             })
 
-        # Create a DataFrame from the metrics
         metrics_df = pd.DataFrame(metrics)
 
-        return metrics_df
+        metrics_df_sorted = metrics_df.sort_values(by='MAE')
 
+        top_model_metrics = metrics_df_sorted.iloc[0]
+        
+        logger.info(top_model_metrics)
+        
+    def infer(self ,entry):
+        with open('label_encoders.pkl', 'rb') as f:
+            label_encoders = pickle.load(f)
+
+        
+        for feature in entry:
+            print(feature)
+            value = entry[feature]
+            if feature in label_encoders:
+                value = label_encoders[feature].transform([value])[0]
+            entry[feature] = value
+        
+
+        ent = pd.DataFrame([entry])
+
+        ent['Year'] = ent['Year'].astype(int)
+        ent['Month'] = ent['Month'].astype(int)
+        ent['Date'] = ent['Date'].astype(int)
+        ent['Quarter'] = ent['Quarter'].astype(int)
+        ent['DayOfYear'] = ent['DayOfYear'].astype(int)
+        ent['Last7Days_mean'] = ent['Last7Days_mean'].astype(float)
+        ent['Last30Days_mean'] = ent['Last30Days_mean'].astype(float)
+        ent['Difference'] = ent['Difference'].astype(float)
+        
+        pp = []
+        for m in self.models_list:
+            pp.append(m.predict(ent))
+        
+
+        return pp
 
 
 

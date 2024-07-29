@@ -43,7 +43,7 @@ class Features():
         self.df['TotalValueUSD'] = self.df.apply(lambda row: self.convert_to_usd(row['RecTime'], row['TotalValue']), axis=1)
         self.df['Last7Days_mean'] = self.df['TotalValueUSD'].rolling(window=7, min_periods=1).mean().shift(1)
         self.df['Last30Days_mean'] = self.df['TotalValueUSD'].rolling(window=30, min_periods=1).mean().shift(1)
-        
+        self.df['Difference'] = self.df['TotalValueUSD'].shift(1) - self.df['TotalValueUSD'].shift(2)
         logger.info('Amounts Converted to USD')
 
         self.add_holidays()
