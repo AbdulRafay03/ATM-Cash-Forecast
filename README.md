@@ -49,13 +49,13 @@
 | Average         | 7653.172050   | 69.994031     | 0.452448 | 0.248254  |
 | Max             | 7897.089496   | 71.107252     | 0.482975 | 0.224295  |
 
-![alt text](ss.png) 
-![alt text](<Screenshot 2024-07-25 193909.png>)
-![alt text](<Screenshot 2024-07-25 193915.png>)
-![alt text](<Screenshot 2024-07-25 193925.png>)
-![alt text](<Screenshot 2024-07-25 193929.png>)
-![alt text](<Screenshot 2024-07-25 193933.png>)
 
-![alt text](<Screenshot 2024-07-25 193855.png>)
-![alt text](<Screenshot 2024-07-25 193903.png>)
-![alt text](output.png)
+![Screenshot 2024-07-25 193903](https://github.com/user-attachments/assets/1881b00e-5f01-4804-b12f-7f07fd1f4468)
+![Screenshot 2024-07-25 193855](https://github.com/user-attachments/assets/aa73c24a-81c5-43d8-a6e5-94fb9f3c27fb)
+![Screenshot 2024-07-25 193933](https://github.com/user-attachments/assets/5feffdfc-bb30-4c0e-8723-8cdbbd996095)
+![Screenshot 2024-07-25 193929](https://github.com/user-attachments/assets/9636dfa1-8dbb-44e2-86b4-da300cf9f794)
+![Screenshot 2024-07-25 193925](https://github.com/user-attachments/assets/c574cebf-fa0d-4063-9d0d-f1bb97740f29)
+![Screenshot 2024-07-25 193915](https://github.com/user-attachments/assets/ac284063-436b-4e72-ad98-07d0a1553384)
+![Screenshot 2024-07-25 193909](https://github.com/user-attachments/assets/2930b1ac-d24f-4927-aed0-5c883ac2ea16)
+![output](https://github.com/user-attachments/assets/91a4278a-7037-4d0c-bf9f-7407a1b51bd6)
+![ss](https://github.com/user-attachments/assets/3d403db3-dde7-44ff-8efe-8a872c117e01)
