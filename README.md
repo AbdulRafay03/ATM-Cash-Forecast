@@ -59,3 +59,7 @@
 ![Screenshot 2024-07-25 193909](https://github.com/user-attachments/assets/2930b1ac-d24f-4927-aed0-5c883ac2ea16)
 ![output](https://github.com/user-attachments/assets/91a4278a-7037-4d0c-bf9f-7407a1b51bd6)
 ![ss](https://github.com/user-attachments/assets/3d403db3-dde7-44ff-8efe-8a872c117e01)
+
+
+
+- USD conversion rates : https://www.investing.com/currencies/usd-pkr-historical-data
