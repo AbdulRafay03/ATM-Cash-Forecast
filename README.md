@@ -1,8 +1,3 @@
-# Atm Cash Forecasting
-Your project appears to focus on **ATM Cash Forecasting** with a user interface that allows manual input of specific features, processes them with a machine learning model, and provides output predictions.
-
-Here’s a comprehensive overview:
-
 ### **1. Project Goal:**
 The objective of this project is to **predict ATM cash requirements** or trends using a machine learning model. The predictions are based on various factors such as holidays, day of the week, payday sequences, and transactional patterns over specific time periods.
 
